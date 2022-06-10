@@ -1,0 +1,69 @@
+{	
+    "0":"programming in C",
+    "1":"Operating Systems",
+    "2": "Analogue Electronics",
+    "3": "Introduction to software Engineering",
+    "4": "Technopreneurship",
+
+    "5": "Object Orientated programming",
+    "6": "Digital Electronics",
+    "7": "Visual Programming",
+    "8": "Database Design Concepts",
+    "9": "Net centric principles design",
+
+    "10":"Computer Architecture",
+    "11":"Advanced Databases",
+    "12": "Data Communications",
+    "13": "Software project management",
+    "14": "Operations Research",
+
+    "15": "Numerical Methods",
+    "16": "DSP",
+    "17": "Graphics and Visualization",
+    "18": "Information Systems Development",
+    "19": "Project HIT200",
+
+    "20": "Attachment",
+
+    "21": "Distributed Systems",
+    "22": "GIS",
+    "23": "Simulation and Modelling",
+    "24": "Engineering economics for SE",
+    "25": "Neural Networks",
+    "26": "Artificial Intelligence",
+
+    "27": "Security and Cryptography",
+    "28": "SIST",
+    "29": "Software Evolution",
+    "30": "Cloud Computing",
+    "31": "Project HIT400"
+}
+
+
+class CameraScreen(QDialog):
+    def __init__(self):
+        super(CameraScreen, self).__init__()
+        loadUi("camera.ui",self)        
+        #self.infoWindow = StudentInfo(data)
+        self.label = self.findChild(QLabel, "picture_frame") #importing widgets
+        self.startcapture_bttn.clicked.connect(self.passingInformation)
+        self.stop_bttn.clicked.connect(self.CancelFeed)
+        self.back_bttn.clicked.connect(self.gotomain)
+    
+    def passingInformation(self):
+        self.Video = VideoStream()
+        self.Video.run()
+        self.Video.ImageUpdate.connect(self.ImageUpdateSlot)
+        self.Video.data()
+    
+    def CancelFeed(self):
+        self.VideoStream.stop()
+        
+    def ImageUpdateSlot(self, Image):
+        self.label.setPixmap(QPixmap.fromImage(Image))
+        
+    def gotomain(self):
+        mainFrm = WelcomeScreen()
+        widget.addWidget(mainFrm)
+        widget.setCurrentIndex(widget.currentIndex()+1)
+ 
