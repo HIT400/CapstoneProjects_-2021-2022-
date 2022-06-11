@@ -1,0 +1,33 @@
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Comments For {{ tarif.name }} </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'proposed-rates' %}" method="post">
+            {% csrf_token %} 
+            <input type="hidden" name="rate_number" value="{{ rate.rate_number }}">
+            <div class="row">
+                                
+                <div class="col-sm-10" id="comment"  >
+                    <textarea id="txtarea" name="comment" placeholder="Enter your comment here !!!!"></textarea>
+                </div>
+                <div class="col-sm-2" id="sentcomment" >
+                    <button type="submit" class="btn btn-success">Post</button>
+                </div>   
+                <hr/>        
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>          
+        </div>
+      </div>
+    </div>
+  </div>

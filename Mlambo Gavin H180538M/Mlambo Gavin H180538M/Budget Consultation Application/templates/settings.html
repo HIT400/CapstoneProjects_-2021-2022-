@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'users/slidebar.html' %}  
+
+   <a>Change Password</a>
+   <a>Edit Personal details</a>
+  
+
+  <div class="container">    
+    <div class="row" style="background-color: white;">
+      <div class="col" style=" height: 600px;">
+        <center>
+          <div class="col" style="background-color: greenyellow; height: 200px; border-radius: 50%; width: 200px;">
+          </div>
+        </center>
+        {% for users in use %}
+            <p>ID Number/ Username <span style="margin-left: 100px;">{{ users.username }} </span></p>
+            <p>Name <span style="margin-left: 215px;">{{ users.first_name }}</span></p>  
+            <p>Surname <span style="margin-left: 195px;">{{ users.last_name}}</span></p>      
+            <p>Ward</p><p></p>
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeProfile">
+              Edit Profile
+          </button>
+        {% endfor %}
+        
+      </div>
+      <div class="col-md-3" style="background-color:white; height:50px">
+        <form action="{% url 'proposed-rates' %}" method="post">
+          {% csrf_token %} 
+          <div class="form-group">
+              <label for="exampleInputPassword1">New Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Cornfirm Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your surname">
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword">
+              Change Password
+            </button>
+        </form>
+      </div>
+   
+      
+      
+    </div>
+  </div>
+
+  
+  {% include 'change_profile.html' %}
+  
+
+{% endblock %}

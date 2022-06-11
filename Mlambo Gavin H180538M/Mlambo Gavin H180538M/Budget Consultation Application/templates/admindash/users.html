@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+{% include 'admindash/slidebar.html' %}
+<div class="container">
+    <div class="row" id="tarrifs" style="margin-top: 15px;">
+        <div class="col-sm-12 col-md-10 col-lg-10" style="height: 40px;">
+          
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2" >
+          <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#changeProfile"><i class="fa fa-plus" aria-hidden="true"></i> New User</button>
+        </div>          
+    </div>
+    <table class="table table-hover" >
+        <tr>
+            <th>Username</th>
+            <th>Surnames</th>
+            <th>E-mail</th>
+            <th>Ward</th>
+        </tr>
+        {% for userz in users %}          
+            <tr>
+                <td>            
+                    {{ userz.user.username  }}
+                    <br/>
+                </td>
+                <td>{{ userz.user.last_name }}</td>
+                <td>{{ userz.user.email }}</td> 
+                <td>{{ userz.ward }}</td>
+                <td align="right">
+                    <a href="{% url 'show-user-comments' userz.user.id %}"class="btn btn-outline-secondary btn-sm" 
+                    >Comments</a>
+                    <a href="{% url 'edit-user' userz.user.id %}"class="btn btn-outline-success btn-sm" 
+                    >Edit</a> 
+                    <a href="{% url 'delete-user' userz.user.id %}"class="btn btn-outline-danger btn-sm" 
+                    >Delete</a> 
+                </td> 
+            </tr>    
+        {% endfor %}
+    </table>  
+</div>
+{% include 'admindash/add_new_user.html' %}
+{% endblock %}  

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'users/slidebar.html' %}
+<div class="row justify-content-md-center" id="topic">{{ rates.name }}</div>
+{% if counts > 0 %}
+<section style="background-color: #f7f6f6;">
+    <div class="container text-dark">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h6 class="text-dark mb-10">{{ name }}</h6>
+                </div>
+                {% for com in comments %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex flex-start">
+                            <img class="rounded-circle shadow-1-strong me-3" src="{% static 'user.jpg' %}" alt="avatar"
+                                width="40" height="40" />
+                            <div class="w-100">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <p class="mb-0"><b>{{ com.date }}</b></p>
+                                    <a href="{% url 'delete-comment' com.id %}" class="btn btn-outline-danger btn-sm"
+                                        style="margin-right:1px;">Delete</a>
+                                </div>
+                                <p>{{ com.comment }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+    {% else %}
+    <center>
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <i>There is no comment to display here!!!!</i>
+        </div>
+    </center>
+    {% endif %}
+
+
+    {% endblock %}
