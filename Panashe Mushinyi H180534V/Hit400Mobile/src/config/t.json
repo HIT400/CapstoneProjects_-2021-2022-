@@ -1,0 +1,53 @@
+{
+  "formId": "3b447ac1-6615-4a61-ac88-bb5f376e7206",
+  "litePerson": {
+    "typeId": "2e68030e-adee-11e7-b30f-3372a2d8551e",
+    "number": "PUKUKTYP",
+    "lastname": "Mugwara",
+    "firstname": "Blessed",
+    "sex": "MALE",
+    "birthdate": [1985, 10, 11]
+  },
+  "portOfEntryEvent": {
+    "arrivalDate": [2021, 12, 6],
+    "traveller": true,
+    "portOfEntryId": "58b031c7-fb8b-11e7-b1cb-18dbf2184447",
+    "nationalityId": "fa2950f8-ad06-11e8-82c7-bca8a6cc451a",
+    "portOfEntryType": "AIR",
+    "transportCompany": "Air Zimbabwe",
+    "conveyanceNumber": "1234",
+    "seatNumber": "12A",
+    "purposeOfEntry": "RESIDENT",
+    "periodOfStay": 12,
+    "contactDetailStreet": "123",
+    "contactDetailSuburb": "Bradfield",
+    "contactDetailTownId": "74",
+    "contactDetailPhone": "+26399999999",
+    "nextOfKinName": "Shawn",
+    "nextOfKinPhone": "+26399999999",
+    "addressAbroad": "Hemban Spain",
+    "countryOfOriginId": "41bf6a5e-fd7d-11e6-9840-000c29c7ff5e",
+    "portOfModeOfEntry": "CAR",
+    "occupation": "Developer",
+    "visits": []
+  },
+  "portOfEntryFollowup": {
+    "date": [2021, 12, 8],
+    "caredForCorvidPatient": false,
+    "attendedCorvidFuneral": false,
+    "contactWithCorvidPatient": false,
+    "testedPositiveForCovid": false,
+    "fever": false,
+    "soreThroat": false,
+    "sob": false,
+    "acuteRash": false,
+    "jointMusclePain": false,
+    "diarrhea": false,
+    "bodyWeakness": false,
+    "mildFlu": false,
+    "unusualBleeding": false,
+    "temperature": 36,
+    "healthStatus": null,
+    "actionTaken": null
+  }
+}

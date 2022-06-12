@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+{% include 'admindash/slidebar.html' %}
+<div class="container" >    
+        <div class="row" id="tarrifs" style="margin-top: 15px;">
+          <div class="col-sm-12 col-md-10 col-lg-10" style="height: 40px;">
+            <center>
+                <h3>Current Tarrifs</h3>
+            </center>
+          </div>
+          <div class="col-sm-12 col-md-2 col-lg-2" >
+            <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus" aria-hidden="true"></i> New Tarriff</button>
+          </div>          
+      </div>
+    <table class="table table-bordered" style="margin-top: 5px;" >
+        <tr>
+            <th>Description</th>
+            <th id="amount">Amount($)</th>
+            <th style="width: 150px;">Last Update</th> 
+            <th style="width: 250px;"></th>                   
+        </tr>
+        {% for tarif in  tarrif %}
+                <tr>
+                    <td>{{ tarif.name }}</td>               
+                    <td>{{ tarif.amount }}</td> 
+                    <td>{{ tarif.update_date }}</td>  
+                    <td align="right">
+                        <a href="{% url 'show-comments' tarif.id %}"class="btn btn-outline-secondary btn-sm" 
+                        >Comments</a>
+                        <a href="{% url 'edit-tarrifs' tarif.id %}"class="btn btn-outline-success btn-sm" 
+                        >Edit</a>
+                        <a href="{% url 'delete-tarrifs' tarif.id %}"class="btn btn-outline-danger btn-sm" 
+                        >Delete</a>
+                    
+                    </td>    
+                        <!-- Button trigger modal -->
+
+  </button>             
+                </tr>
+              
+        {% endfor %}
+    </table>
+    
+</div>
+{% include 'admindash/addNewTarrif.html' %}
+{% endblock %}
