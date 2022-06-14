@@ -1,0 +1,41 @@
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Tarrif</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="{% url 'new-tarrif' %}"> 
+                {% csrf_token %}          
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" name="names" type="text" value="{{ tarrif.tarrif_number }}"placeholder="Name of Tarriff" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Amount</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="price" class="form-control" id="inputPassword3" placeholder="Enter Amount">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" name="reason" id="exampleFormControlTextarea1" rows="3" placeholder="Describe what this Tarriff is all about"></textarea>
+                  </div>
+                </div>                            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  
+    

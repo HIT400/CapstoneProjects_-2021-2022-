@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'users/slidebar.html' %}
+<div class="row justify-content-md-center" id="topic">{{ rates.name }}</div>
+{% if counts > 0 %}
+        {% for com in comments %}
+                <div class="card"> 
+                    <div class="card-header">
+                    Date: {{ com.date }}
+                    </div>   
+                    <div class="card-body">     
+                    <p class="card-text">
+                        {{ com.comment }} 
+                    </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="{% url 'delete-comment' com.id %}" class="btn btn-outline-danger btn-sm" style="margin-right:1px;">Delete Event</a>
+                    </div>
+                </div>
+                <br/>                
+            {% endfor %}
+{% else %}
+        <center>
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <i>There is no comment to display here!!!!</i>
+            </div>
+        </center>
+{% endif %}
+
+
+{% endblock %}
