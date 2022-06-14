@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*****************************************    DASHBOARD      ***************************************************** */
 html, body {
   max-width: 100%;
@@ -262,4 +263,270 @@ html, body {
     margin-top: 10px;
   }
 }
+=======
+/*****************************************    DASHBOARD      ***************************************************** */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+:root {
+  --main-bg-color: #009d63;
+  --main-text-color: white;
+  --second-text-color:white;
+  --second-bg-color: #c1efde;
+}
+
+.primary-text {
+  color: var(--main-text-color);
+}
+
+.second-text {
+  color: var(--second-text-color);
+}
+
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
+.navbar {
+  background-image: linear-gradient(
+    to right,
+    #38c581e8,
+    #22b170,
+    #158b58,
+    #1fb179,
+    #30b683
+  );
+}
+
+.rounded-full {
+  border-radius: 100%;
+}
+#sidebar-wrapper {
+    background-color: #009d63;
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  #menu-toggle {
+    cursor: pointer;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 20px 30px;
+  }
+  
+  .list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    .dropdown-menu{
+      background-color: #009d63;
+      color: white;
+      font-size: larger;
+    }
+    .items:hover{
+      background-color: white;
+      border-radius: 0px 20px 20px 0px;
+      height: 40px;
+      width: 240px;      
+    }
+    .items a{
+      display: inline-block;
+      line-height: normal;
+      vertical-align: middle;
+    }
+    
+  /* ******************************** END DASHBOARD ********************************************************************************* */
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+  /* Add New Button */
+  #btnAddProject{
+    margin: 10px 0 10 0;
+    height: 50px;
+    font-size: large;
+    font-weight: 5000;
+    
+    
+  }
+  #container1{
+    
+    width: 20%;
+    margin-left: 900px;
+  }
+  
+  /* Project Comment section */
+  #txtarea  {
+      height: 50px;
+      width: 830px;
+      border: none;
+      outline: none;
+      border-color: transparent;
+      resize: none;
+  }
+  #txtarea input:focus , textarea:focus, select:focus{
+    outline: none;
+  }
+  /* Add Tarrif Comment */
+  
+/* View Comments Div */
+#viewcomment{
+  width: auto;
+  padding-top: 5px;
+}
+
+/* Sent Comments Div */
+#sentcomment{
+  width: auto;
+  padding-top: 5px;
+}
+/* Addd comment Section */
+#comments{
+  width: 850px;
+  padding-top: 5px;
+}
+/* cards */
+.card-header{
+  background-color: #bbbec5;
+}
+/* User List */
+#userlist{
+  background-color: white;
+}
+/************************************ Login Page *************************************************************/
+
+/************************************** End of Login Page *****************************************************/
+
+/* **************************************** User Rates Page****************************************************** */
+#amount{
+    width: 100px;
+}
+/* **************************************** End User Rates Page****************************************************** */
+
+/* ******************************************User Settings *********************************************************** */
+#user_profile{
+ 
+  min-height: 400px;
+  width: 600px;
+  margin: 2px 0px 0px 2px;
+   
+}
+#change_password{
+  margin-top: 10px;
+}
+/* *******************************************End User Settings ******************************************************* */
+/* ************************************************Settings Container ****************************************** */
+#settings_container{
+  background-color: white;
+}
+/* ************************************************End Setings container ******************************************* */
+
+/* ****************************************************Adimdash**************************************************** */
+#adimdash{
+    height: 90vh;
+    background-image: linear-gradient(
+      to right,
+      #baf3d7,
+      #c2f5de,
+      #cbf7e4,
+      #d4f8ea,
+      #ddfaef
+    );
+}
+/* ***************************************************** Admindash ********************************************* */
+#topic{  
+  height: 75px;
+  font-size: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 90%;
+  margin: 5px 0px 5px 50px;
+}
+.shadow-lg{
+  margin: 10px 0px 0px 10px;
+  height: 70px;
+  width: 50%;
+  border-radius:5px ;
+  color: red;
+
+}
+/* ******************************************************Admin Edit user profile**************************** */
+#edituser{
+  width: 70%;
+  height: 400px;
+  margin-top: 50px;
+  }
+  .edit_user{
+    margin-left: 130px;
+  }
+  @media (max-width: 500px) {
+    .edit_user {
+      margin-left: 1px;
+      width: 100%;
+      background-color: #009d63;
+    }
+    #edituser{
+      margin-top: 2px;
+    }
+  }
+  
+/* **********************************************************End ********************************************* */
+/* **********************************************************LogIn ******************************************* */
+#login{
+  width:500px;  
+  margin-top: 100px;
+  border-radius: 25px;
+  background-color: white;
+}
+.well{
+  background-color: rgb(13, 168, 109);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+@media (max-width: 500px) {
+  #login{
+    margin-top: 10px;
+  }
+}
+>>>>>>> parent of 5a30ca7... commit message
 /* ***********************************************************End ********************************************** */

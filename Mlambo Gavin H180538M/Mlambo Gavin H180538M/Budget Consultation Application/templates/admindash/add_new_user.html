@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="modal fade" id="changeProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -63,4 +64,71 @@
       </div>
     </div>
   </div>
+=======
+<div class="modal fade" id="changeProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Add New User </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{% url 'add-user'%}">
+          {% csrf_token %}
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" name="username" class="form-control" id="inputEmail3" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" class="form-control" id="inputPassword3" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Surname</label>
+            <div class="col-sm-10">
+              <input type="text" name="surname" class="form-control" id="inputEmail3" placeholder="Surname">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" name="emails" class="form-control" id="inputPassword3" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Ward</label>
+            <div class="col-sm-10">
+              <input type="text" name="ward" class="form-control" id="inputPassword3" placeholder="Ward">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" name="password1" class="form-control" id="inputEmail3" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Cornfirm Password</label>
+            <div class="col-sm-10">
+              <input type="password" name="password2" class="form-control" id="inputPassword3"
+                placeholder="Cornfirm Password">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+>>>>>>> parent of 5a30ca7... commit message
 </div>

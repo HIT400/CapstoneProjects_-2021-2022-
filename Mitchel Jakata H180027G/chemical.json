@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"0" : "Kocide 3000, Dithane M-54",
     "1":"Bonide Liquid Copper Fungicide ",
     "2": "Chlorothalonil (eg Bravo, Echo) and Mancozeb (Manzate)",
@@ -7,4 +8,15 @@
     "6": "Chlorothalonil",
     "7": "Imidacloprid",
     "8": "No pesticide , (Remove all infected plants and destroy them",
+=======
+{"0" : "Kocide 3000, Dithane M-54",
+    "1":"Bonide Liquid Copper Fungicide ",
+    "2": "Chlorothalonil (eg Bravo, Echo) and Mancozeb (Manzate)",
+    "3": "Calcium chloride spray, Apple-cider and vinegar ",
+    "4": "azoxystrobin (Quadris), chlorothalonil t cymoxanil(Ariston)",
+    "5": "Chlorothalonil, copper oxychloride or mancozeb",
+    "6": "Chlorothalonil",
+    "7": "Imidacloprid",
+    "8": "No pesticide , (Remove all infected plants and destroy them",
+>>>>>>> parent of 5a30ca7... commit message
     "9": "Continue Monitoring"}

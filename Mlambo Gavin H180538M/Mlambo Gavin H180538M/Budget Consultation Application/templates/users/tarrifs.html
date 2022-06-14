@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 {% load static %}
 
@@ -31,4 +32,39 @@
     </table>
 </div>
 {% include 'users/tarrif_modal.html' %}
+=======
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'users/slidebar.html' %}
+<div class="container" style="background-color: white; margin-left: 2px;">
+    <center>
+        <h5>Current Tarrifs</h5>
+    </center>
+    <table class="table table-bordered" >
+        <tr>
+            <th>Description</th>
+            <th id="amount">Amount($)</th>
+            <th style="width: 150px;">Last Update</th> 
+            <th style="width: 50px;"></th>                   
+        </tr>
+        {% for tarif in  tarrif %}
+                <tr>
+                    <td>{{ tarif.name }}</td>               
+                    <td>{{ tarif.amount }}</td> 
+                    <td>{{ tarif.update_date }}</td>  
+                    <td align="right">
+                        <a href="#"class="btn btn-outline-secondary btn-sm" 
+                        data-toggle="modal" data-target="#exampleModalScrollable">Comment</a></td>    
+                        <!-- Button trigger modal -->
+
+  </button>             
+                </tr>
+                {% include 'users/tarrif_modal.html' %}
+        {% endfor %}
+    </table>
+</div>
+{% include 'users/tarrif_modal.html' %}
+>>>>>>> parent of 5a30ca7... commit message
 {% endblock %}
