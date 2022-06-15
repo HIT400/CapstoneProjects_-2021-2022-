@@ -1,0 +1,79 @@
+{% extends 'ticketapp/base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1>{{object.title}}</h1>
+    <p>Customer name: {{object.customer_full_name}}</p>
+    <p>Phone number: {{object.customer_phone_number}}</p>
+    <p>Email: <a href="mailto:{{object.customer_email}}">{{object.customer_email}}</a></p>
+    <p>Urgent: {{object.urgent_status}}</p>
+    <p>Resolved: {{object.completed_status}}</p>
+    <p>Assigned To: {{object.assigned_to.first_name}} {{object.assigned_to.last_name}}</p>
+    <p>Created: {{object.created_date}}</p>
+
+    <br>
+
+    <p>{{object.issue_description}}</p>
+</div>
+
+<div class="container d-flex mt-2 ">
+
+    {% if user.is_staff %}
+        {% if object.completed_status != True %}
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#markResolvedModal">Mark Resolved</button>
+        {% endif %}
+    {% endif %}
+    
+    <a href="{% url 'ticketapp:update-ticket' pk=object.pk %}" class="btn btn-primary mx-2">Edit</a>
+    <a href="{% url 'ticketapp:delete-ticket' pk=object.pk %}" class="btn btn-danger mx-2">Delete</a>
+</div>
+
+{% if comments %}
+    <div class="container mt-4">
+
+        <h2>Note</h2>
+
+        {% for comment in comments %}
+        <div class="bg-light mt-2 mb-2">
+            <p class="text-secondary">@{{comment.user.username}} {{comment.created_date}}</p>
+            <p>{{comment.text}}</p>
+        </div>
+
+        {% endfor %}
+    </div>
+
+{% endif %}
+
+<!-- Modal -->
+<div class="modal fade" id="markResolvedModal" tabindex="-1" aria-labelledby="markResolvedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="markResolvedModalLabel">Add Note</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'ticketapp:mark-resolved' id=object.pk %}" method="post">
+                {% csrf_token %}
+                <div class="form-group mt-2 mb-2">
+        
+                    <textarea name="comment" cols="15" rows="10" class="form-control" placeholder="Add note on how issue was solved..."></textarea>
+        
+                    <input type="submit" class="btn btn-secondary mt-2">
+        
+                </div>
+        
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

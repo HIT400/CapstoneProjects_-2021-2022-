@@ -1,0 +1,70 @@
+{% extends 'ticketapp/base.html' %}
+
+{% block content %}
+
+<div class="container bg-light mt-2 pt-2 pb-4">
+    <h1 class="text-center">Update ticket</h1>
+    <form action="" method="post">
+        {% if form.errors %}
+            <ul class="messages">
+
+                {% for error in form.errors %}
+                    <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        
+        {% endif %}
+
+
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">Title</label>
+            {{form.title}}
+        </div>
+
+        <div class="form-group">
+            <label for="id_customer_full_name">Customer full name</label>
+            {{form.customer_full_name}}
+        </div>
+
+        <div class="form-group">
+            <label for="id_customer_phone_number">Phone number</label>
+            {{form.customer_phone_number}}
+        </div>
+
+        <div class="form-group">
+            <label for="id_customer_email">Email</label>
+            {{form.customer_email}}
+        </div>
+        <div class="form-group">
+            <label for="id_issue_description">Description</label>
+            {{form.issue_description}}
+        </div>
+
+        <div class="form-group">
+            <label for="id_ticket_section">Possible Ticket Category</label>
+            {{form.ticket_section}}
+        </div>
+
+        <div>
+            <label for="id_urgent_status">Urgent</label>
+            {{form.urgent_status}}
+        </div>
+
+        <div>
+            <label for="id_completed_status">Completed</label>
+            {{form.completed_status}}
+        </div>
+
+
+        <div class="form-group pt-2 pb-2">
+            <label for="id_assigned_to">Assign to</label>
+            {{form.assigned_to}}
+        </div>
+
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+
+
+{% endblock content %}

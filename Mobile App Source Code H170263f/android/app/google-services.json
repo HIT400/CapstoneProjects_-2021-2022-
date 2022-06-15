@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "867063930858",
+    "firebase_url": "https://ictchatbot-apce-default-rtdb.firebaseio.com",
+    "project_id": "ictchatbot-apce",
+    "storage_bucket": "ictchatbot-apce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867063930858:android:32e14feedb6fa0ee10dc93",
+        "android_client_info": {
+          "package_name": "com.flutterproff.flutter_chat_bot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867063930858-egv66rjpsq9ltm5d48oslkqq3ol55jgb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwb9wE5UYLdKyztCGIa_Cn6svZUG4S4QM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867063930858-egv66rjpsq9ltm5d48oslkqq3ol55jgb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
