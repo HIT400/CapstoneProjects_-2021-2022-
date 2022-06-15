@@ -1,0 +1,53 @@
+{% extends 'administrator/base.html' %}
+
+{% block title %}Sales History {% endblock %}
+
+{% block header %} Sales History {% endblock %}
+
+{% block report %}<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-2">Generate Report</a>{% endblock %}
+
+{% block content %}
+
+<!-- Begin Page Content -->
+
+<!-- Contents Table -->
+{% for date in dates %}
+<h3 class="display-3 m-3">{{date}}</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Order number</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Date ordered</th>
+      <th scope="col">Items</th>
+      <th scope="col">Total cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+      {% if order.total != None %}
+        {% if order.date_ordered.date == date %}
+        <tr>
+          <td>{{order.number}}</td>
+          <td>{{order.customer.user.first_name}} {{order.customer.user.last_name}}</td>
+          <td>{{order.date_ordered}}</td>
+          <td>
+            <ul>
+              {% for item in items %}
+                {% if item.order == order %}
+                  <li>{{item.product.name}} x{{item.quantity}}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{order.total}}</td>
+        </tr>
+        {% endif%}
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endfor %}
+<!-- End Page Content -->
+
+{% endblock %}

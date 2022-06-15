@@ -1,0 +1,232 @@
+{% extends 'administrator/base.html' %}
+
+{% block title %}Dashboard {% endblock %}
+
+{% block header %} Dashboard {% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+
+<!-- Page Heading -->
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Earnings (Monthly)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">${{monthly|floatformat:2}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Earnings (Annual)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">${{annual|floatformat:2}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">New users
+                                </div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{new_users}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Pending Requests</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{pending_orders}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="ms-panel card border-left-primary shadow h-100 py-2 px-5">
+                <div class="ms-panel-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="align-self-center align-left my-3">
+                            <h4>Recent Orders</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">Food Item</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in items %}
+                            <tr>
+                                <td class="ms-table-f-w"><img src="{{item.product.imageURL}}" alt="{{item.product.name}}" class="row-image rounded-3">{{item.product.name}}</td>
+                                <td>{{item.product.price}}</td>
+                                <td>{{item.quantity}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="ms-panel ms-panel-fh card border-left-primary shadow h-100 py-2 px-5">
+                <div class="ms-panel-header new">
+                    <h6>Monthly Revenue</h6>
+                    <select class="form-control new" id="exampleSelect">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March </option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="1">June</option>
+                        <option value="2">July</option>
+                        <option value="3">August</option>
+                        <option value="4">September</option>
+                        <option value="5">October</option>
+                        <option value="4">November</option>
+                        <option value="5">December</option>
+                    </select>
+                </div>
+                <div class="ms-panel-body">
+                    <span class="progress-label"> <strong>Week 1</strong> </span>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">25%</div>
+                    </div>
+                    <span class="progress-label"> <strong>Week 2</strong> </span>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                    </div>
+                    <span class="progress-label"> <strong>Week 3</strong> </span>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">75%</div>
+                    </div>
+                    <span class="progress-label"> <strong>Week 4</strong> </span>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">40%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 mb-4">
+            <div class="ms-panel card border-left-primary shadow h-100 py-2 px-5">
+                <div class="ms-panel-header my-3">
+                    <h4>Trending Orders</h4>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="row">
+                        {% for total in totals %}
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-lg-20">
+                            <div class="ms-card no-margin">
+                                <div class="ms-card-img">
+                                    <img src="{{total.product.imageURL}}" alt="{{total.product.name}}" class="row-image rounded-3">
+                                </div>
+                                <div class="ms-card-body">
+                                    <div class="ms-card-heading-title">
+                                        <h6>{{total.product.name}}</h6>
+                                        <span class="green-text"><strong>${{total.product.price}}</strong></span>
+                                    </div>
+                                    <div class="ms-card-heading-title">
+                                        <p>Orders <span class="red-text">: {{total.quantity}}</span></p>
+                                        <p>Income <span class="red-text">${{total.total_cost|floatformat:2}}</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-5 col-md-12 mb-4">
+            <div class="ms-panel ms-widget ms-crypto-widget card border-left-primary shadow h-100 py-2 px-5">
+            <div class="ms-panel">
+                <div class="ms-panel-header my-3">
+                    <h4>Total Earnings</h4>
+                </div>
+                <hr/>
+                <div class="ms-panel-body p-0">
+                    <div class="row">
+                         <div class="col border-end border-5">
+                             <center>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-star-fill mb-4" viewBox="0 0 16 16">
+                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                 </svg>
+                                 <p class="h3">${{today|floatformat:2}}</p>
+                                 <span>Today</span>
+                             </center>
+                         </div>
+                         <div class="col">
+                             <center>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-x-diamond-fill mb-4" viewBox="0 0 16 16">
+                                     <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098l2.904 2.905z"/>
+                                 </svg>
+                                 <p class="h3">${{yesterday|floatformat:2}}</p>
+                                 <span>Yesterday</span>
+                             </center>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Content -->
+
+{% endblock %}
+

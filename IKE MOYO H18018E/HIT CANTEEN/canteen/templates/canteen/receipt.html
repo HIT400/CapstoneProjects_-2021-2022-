@@ -1,0 +1,42 @@
+{% extends 'canteen/base.html'%}
+
+{% load static %}
+
+{% block title %}Receipt {% endblock %}
+
+{% block header %}Receipt {% endblock %}
+
+{% block content %}
+<center class="justify-content-center align-items-center mb-5">
+	<div class="col-lg-7 text-start border border-secondary border-2 rounded-3">
+		<div class="box-element p-3">
+			<div class="cart-row">
+				<div style="flex:2" class="h3"><p>Order:</p></div>
+				<div style="flex:1" class="h3"><p>#{{order.number}}</p></div>
+			</div>
+			<div class="cart-row">
+				<div style="flex:2"><p>Due:</p></div>
+				<div style="flex:1"><p>{{order.collect_time}}</p></div>
+			</div>
+			<hr>
+			{% for item in items %}
+			<div class="cart-row">
+				<div style="flex:1"><p>{{item.product.name}}</p></div>
+				<div style="flex:1"><p>x{{item.quantity}}</p></div>
+				<div style="flex:1"><p>${{item.product.price|floatformat:2}}</p></div>
+			</div>
+			{% endfor %}
+			<div class="cart-row">
+				<div style="flex:2"><p>Total:   </p></div>
+				<div style="flex:1"><p>$<span class="total">{{order.get_cart_total|floatformat:2}}</span></p></div>
+			</div>
+			<div class="mt-5">
+				<h6 class="display-5">Thank you!!</h6>
+				<img src="{% static 'images/test.png'%}" alt="Order QR code" />
+				<h6 class="bold"><em>Note: Please present this QR code to the cashier upon order reception</em></h6>
+			</div>
+		</div>
+	</div>
+</center>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'canteen/base.html'%}
+
+{% load static %}
+
+{% block title %}Receipt {% endblock %}
+
+{% block header %}Receipt {% endblock %}
+
+{% block content %}
+
+			<div class="mt-5">
+				<h6 class="display-5">Thank you!!</h6>
+				<img src="{% static 'images/test.png'%}" alt="Order QR code" />
+				<h6 class="bold"><em>Note: Please present this QR code to the cashier upon order reception</em></h6>
+			</div>
+
+{% endblock %}

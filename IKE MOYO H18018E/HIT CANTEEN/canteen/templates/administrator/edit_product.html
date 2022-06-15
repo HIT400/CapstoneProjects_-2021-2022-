@@ -1,0 +1,38 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Edit Product {% endblock %}
+
+{% block header %} Edit Product: {{product.name}} {% endblock %}
+
+{% block content %}
+
+
+<section style="background-color:rgb(194, 192, 192);">
+  <div class="container py-5">
+    <form class="w-50" action="{% url 'edit_product' product.id %}" method="post">
+          {% csrf_token %}
+        <div class="form-outline mb-4">
+          <input type="number" name="price" class="form-control" min="0.01" step="0.01" placeholder="New Price" required/>
+        </div>
+
+         <div class="form-outline mb-4">
+          <select name="rating" id="rating" class="form-select" aria-label="Default select example" required>
+              <option value="" disabled selected hidden>---Select rating---</option>
+                {% for value in "12345" %}
+                    <option value="{{value}}">
+                        {{value}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="pt-1 mb-5 pb-1">
+          <button class="btn btn-primary btn-lg rounded-2" type="submit">Save</button>
+        </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

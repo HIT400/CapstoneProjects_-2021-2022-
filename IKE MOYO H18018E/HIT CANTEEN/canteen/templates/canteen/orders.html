@@ -1,0 +1,39 @@
+{% extends 'canteen/base.html' %}
+
+{% block title %}Order's History {% endblock %}
+
+{% block header %}Order's History {% endblock %}
+
+{% block content %}
+<!-- Contents Table -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date ordered</th>
+      <th scope="col">Items</th>
+      <th scope="col">Total Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order in orders %}
+      {% if order.total != None %}
+        <tr>
+          <td>{{order.date_ordered}}</td>
+          <td>
+            <ul>
+              {% for item in items %}
+                {% if item.order == order %}
+                  <li>{{item.product.name}} x{{item.quantity}}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </td>
+          <td>{{order.total}}</td>
+        </tr>
+      {% endif %}
+    {% endfor%}
+  </tbody>
+</table>
+
+<!-- End Page Content -->
+{% endblock %}

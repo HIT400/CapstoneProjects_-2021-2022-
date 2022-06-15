@@ -1,0 +1,29 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Add Category {% endblock %}
+
+{% block header %} Add Category {% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+    {{message | safe}}
+{% endfor %}
+
+<section style="background-color:rgb(194, 192, 192);">
+    <div class="container py-5">
+        <form action="{% url 'add_category' %}" method="post" class="w-50">
+              {% csrf_token %}
+            <div class="form-outline mb-4">
+              <input type="text" id="category" name="category" class="form-control" minlength="5" placeholder="New Category" required/>
+            </div>
+            <div class="pt-1 mb-5 pb-1">
+              <button class="btn btn-primary btn-lg rounded-2" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

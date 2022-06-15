@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/HIT_logo.png'%}" />
+    <title>HIT Canteen | {% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-icons/font/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+
+		function getCookie(name) {
+		    // Split cookie string and get all individual name=value pairs in an array
+		    var cookieArr = document.cookie.split(";");
+
+		    // Loop through the array elements
+		    for(var i = 0; i < cookieArr.length; i++) {
+		        var cookiePair = cookieArr[i].split("=");
+
+		        /* Removing whitespace at the beginning of the cookie name
+		        and compare it with the given string */
+		        if(name == cookiePair[0].trim()) {
+		            // Decode the cookie value and return
+		            return decodeURIComponent(cookiePair[1]);
+		        }
+		    }
+
+		    // Return null if not found
+		    return null;
+		}
+		var cart = JSON.parse(getCookie('cart'))
+
+		if (cart == undefined){
+			cart = {}
+			console.log('Cart Created!', cart)
+			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+		}
+		console.log('Cart:', cart)
+
+	</script>
+</head>
+<body>
+    {% if user.is_authenticated and user.is_staff %}
+    <nav class="navbar navbar-dark fixed-top bg-secondary flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'images/HIT_logo.png'%}" alt="HIT Canteen" width="30" height="24"/>HIT Canteen</a>
+            <input type="text" class="form-control form-control-primary w-50" placeholder="Search..." />
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    <span>{{user.first_name}}</span>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 bg-light d-none d-md-block sidebar">
+            <div class="left-sidebar">
+                <ul class="nav flex-column sidebar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{% url 'home' %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                          <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                        </svg>
+                        Home
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{% url 'order_collect' %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                          <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                        </svg>
+                        Orders
+                      </a>
+                    </li>
+                    <br/><hr/><br/>
+                    <li class="nav-item mt-5">
+                      <a class="nav-link" href="../logout">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                          <path d="M7.5 1v7h1V1h-1z"/>
+                          <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                        </svg>
+                        Logout
+                      </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+                    <!-- Start Main Content-->
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                        <!-- Page Heading -->
+                     <header class="d-sm-flex align-items-center justify-content-between mb-4">
+                         <h1 class="h3 mb-0 text-gray-800">{% block header %}{% endblock %}</h1>
+                         {% block report %}{% endblock %}
+                     </header>
+
+                        {% block content %}
+                        {% endblock %}
+                    </main>
+                    <!-- End Main Content -->
+                </div>
+            </div>
+
+    {% endif %}
+    <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
+</body>
+</html>

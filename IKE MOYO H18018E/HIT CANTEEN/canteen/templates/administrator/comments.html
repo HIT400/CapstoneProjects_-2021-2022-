@@ -1,0 +1,42 @@
+{% extends 'administrator/base.html' %}
+
+{% block title %} Comments {% endblock %}
+
+{% block header %} Comments {% endblock %}
+
+{% block report %}<a href="" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-2">Generate Report</a>{% endblock %}
+
+{% block content %}
+
+<!-- Begin Page Content -->
+
+<!-- Contents Table -->
+
+<section style="background-color:rgb(194, 192, 192);">
+  <div class="container my-5 py-5 text-dark">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+
+        {% for comment in comments %}
+        <div class="card">
+              <div class="card-header d-flex justify-content-between p-3">
+                <p class="fw-bold mb-0">{{comment.customer.user.first_name}} {{comment.customer.user.last_name}}</p>
+                <p class="text-muted small mb-0"><i class="far fa-clock"></i> {{ comment.date_commented.date }}</p>
+              </div>
+              <div class="card-body">
+                <h6 class="text-primary fw-bold mb-0">
+                    {{comment.product.name}}
+                </h6>
+                <p class="mb-0">
+                  {{comment.comment}}
+                </p>
+              </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End Page Content -->
+{% endblock %}

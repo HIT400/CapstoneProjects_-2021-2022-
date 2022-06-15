@@ -1,0 +1,45 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Add Promotional Offer {% endblock %}
+
+{% block header %} Add Promotional Offer {% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+    {{message | safe}}
+{% endfor %}
+
+<section style="background-color:rgb(194, 192, 192);">
+    <div class="container py-5">
+        <form action="{% url 'add_offer' %}" method="post" class="w-50">
+              {% csrf_token %}
+            <div class="form-outline mb-4">
+              <select name="product" class="form-select" aria-label="Default select example" required>
+                  <option value="" disabled selected hidden>---Select Product---</option>
+                  {% for product in products %}
+                    <option value="{{product.pk}}">
+                        {{product.name}}
+                    </option>
+                  {% endfor %}
+              </select>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="text" id="name" name="name" class="form-control" placeholder="Offer" required/>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="text" id="description" name="description" class="form-control" placeholder="Description" required/>
+            </div>
+
+            <div class="text-center pt-1 mb-5 pb-1">
+              <button class="btn btn-primary btn-lg rounded-2" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

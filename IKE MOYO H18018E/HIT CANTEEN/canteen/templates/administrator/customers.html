@@ -1,0 +1,40 @@
+{% extends 'administrator/base.html' %}
+
+{% block title %} Customers {% endblock %}
+
+{% block header %} Customers {% endblock %}
+
+{% block report %}<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-2">Generate Report</a>{% endblock %}
+
+{% block content %}
+
+<!-- Begin Page Content -->
+
+<!-- Contents Table -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Balance
+      <th scope="col">Spending score</th>
+      <th scope="col">Last Login</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for customer in customers %}
+        <tr>
+          <td>{{customer.user.username}}</td>
+          <td>{{customer.user.first_name}} {{customer.user.last_name}}</td>
+          <td>{{customer.user.email}}</td>
+          <td>{{customer.balance|floatformat:2}}</td>
+          <td>{{customer.spending_score}}</td>
+          <td>{{customer.user.last_login}}</td>
+        </tr>
+     {% endfor %}
+  </tbody>
+</table>
+
+<!-- End Page Content -->
+{% endblock %}

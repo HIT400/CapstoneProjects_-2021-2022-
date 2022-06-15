@@ -1,0 +1,54 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Products {% endblock %}
+
+{% block header %} Products {% endblock %}
+
+{% block report %}
+    <a href="{% url 'add_product' %}" class="d-none d-sm-inline-block btn btn btn-primary rounded-2" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+        </svg>
+        Add Product
+    </a>
+{% endblock %}
+
+
+{% block content %}
+<section class="h-100 gradient-form bg-image">
+    <div class="container py-5 h-100">
+        {% for message in messages %}
+            {{message | safe}}
+        {% endfor %}
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Category</th>
+                <th scope="col">Rating(/5)</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>${{product.price}}</td>
+                    <td>{{product.category}}</td>
+                    <td>{{product.rating | length}}</td>
+                    <td width="20%">
+                        <a href="{% url 'edit_product' product.id %}"  class="btn btn-primary rounded-2 mx-3" >Edit</a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn btn btn-danger rounded-2" >Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>
+
+{% endblock %}

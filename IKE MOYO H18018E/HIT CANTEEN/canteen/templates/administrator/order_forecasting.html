@@ -1,0 +1,55 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Order predictions {% endblock %}
+
+{% block header %} Order predictions {% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+    {{message | safe}}
+{% endfor %}
+
+<section style="background-color:rgb(194, 192, 192);">
+    <div class="container py-5">
+        <form action="{% url 'order_forecasting' %}" method="post" class="w-50">
+          {% csrf_token %}
+            <div class="form-outline mb-4">
+              <select name="title" id="title" class="form-select" aria-label="Default select example" required>
+                  <option value="" disabled selected hidden>---Select title---</option>
+                  <option value="21">1<sup>st</sup> year student</option>
+                  <option value="20">2<sup>nd</sup> year student</option>
+                  <option value="19">3<sup>rd</sup> year student</option>
+                  <option value="18">4<sup>th</sup> year student</option>
+                  <option value="0">Non-student stakeholder</option>
+                </select>
+            </div>
+
+             <div class="form-outline mb-4">
+              <select name="category" id="category" class="form-select" aria-label="Default select example" required>
+                  <option value="" disabled selected hidden>---Select category---</option>
+                    {% for category in categories %}
+                        <option value="{{category.name}}">
+                            {{category.name}}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+             <div class="form-outline mb-4">
+                <label>Gender</label><br/>
+                <input type="radio" class="mx-1" name="gender" id="male" value="Male"/><label>Male</label>
+                <input type="radio" class="mx-1" name="gender" id="female" value="Female"/><label>Female</label>
+                <input type="radio" class="mx-1" name="gender" id="other" value="Other"/><label>Other</label>
+            </div>
+
+            <div class="pt-1 mb-5 pb-1">
+              <button class="btn btn-primary btn-lg mb-3 rounded-2" type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

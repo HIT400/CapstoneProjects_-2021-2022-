@@ -1,0 +1,61 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Add Product {% endblock %}
+
+{% block header %} Add Product {% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+    {{message | safe}}
+{% endfor %}
+
+<section style="background-color:rgb(194, 192, 192);">
+    <div class="container py-5">
+        <form class="w-50" encType="multipart/form-data" action="{% url 'add_product' %}" method="post">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+              <input type="text" id="product" name="product" class="form-control" minlength="3" placeholder="New Product" required/>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="number" id="price" name="price" class="form-control" min="0.01" step="0.01" placeholder="Price($)" required/>
+            </div>
+
+             <div class="form-outline mb-4">
+              <select name="category" id="category" class="form-select" aria-label="Default select example" required>
+                  <option value="" disabled selected hidden>---Select category---</option>
+                    {% for category in categories %}
+                        <option value="{{category.name}}">
+                            {{category.name}}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+             <div class="form-outline mb-4">
+              <input type="file" id="image" name="image" accept="image/jpeg"  class="form-control" placeholder="Choose Image" required/>
+            </div>
+
+             <div class="form-outline mb-4">
+              <select name="rating" class="form-select" aria-label="Default select example" required>
+                  <option value="" disabled selected hidden>---Select rating---</option>
+                    {% for rating in "12345" %}
+                        <option value="{{rating}}">
+                            {{rating}}
+                        </option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <div class="pt-1 mb-5 pb-1">
+              <button class="btn btn-primary btn-lg mb-3 rounded-2" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

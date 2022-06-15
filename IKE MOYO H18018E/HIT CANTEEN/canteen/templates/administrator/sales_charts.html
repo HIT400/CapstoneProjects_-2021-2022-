@@ -1,0 +1,15 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Sales Charts {% endblock %}
+
+{% block header %} Sales Charts {% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+{% if graph %}
+    <img src="data:image/png;base64, {{graph | safe}}"/>
+{% endif %}
+
+{% endblock %}

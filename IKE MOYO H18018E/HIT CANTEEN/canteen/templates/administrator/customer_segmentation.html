@@ -1,0 +1,16 @@
+{% extends 'administrator/base.html'%}
+
+{% load static %}
+
+{% block title %} Customer Segmentation {% endblock %}
+
+{% block header %} Customer Segmentation {% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+{% if graph %}
+    <img src="data:image/png;base64, {{graph | safe}}"/>
+{% endif %}
+<hr/>
+
+{% endblock %}

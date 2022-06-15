@@ -1,0 +1,29 @@
+{% extends 'administrator/base.html' %}
+
+{% block title %}Quantity Charts {% endblock %}
+
+{% block header %}Quantity Charts {% endblock %}
+
+{% block report %}<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm rounded-2">Generate Report</a>{% endblock %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<!--<form action="url 'quantity_charts'"  method="post">-->
+<!--    {% for product in products %}-->
+<!--        <div class="form-check form-check-inline">-->
+<!--          <input class="form-check-input" type="checkbox" id="product.product.id" value="product.product.name">-->
+<!--          <label class="form-check-label" for="product.product.id">{{product.product.name}}</label>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--    <div class="pt-1 mb-5 pb-1">-->
+<!--        <button class="btn btn-primary btn-lg mb-3 rounded-2" type="submit">Filter</button>-->
+<!--    </div>-->
+<!--</form>-->
+
+
+{% if graph %}
+    <img src="data:image/png;base64, {{graph | safe}}"/>
+{% endif %}
+
+{% endblock %}
+
