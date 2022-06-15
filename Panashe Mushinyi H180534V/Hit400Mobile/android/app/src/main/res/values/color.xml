@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="background">#fafafa</color> ← Use a background color of your preferences
-    <color name="primary_dark">#fafafa</color>
-</resources>
