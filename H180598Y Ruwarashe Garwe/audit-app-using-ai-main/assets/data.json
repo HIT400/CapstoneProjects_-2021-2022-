@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Entrance",
+        "can_repeat": true,
+        "inventory": [
+            {
+                "id": 1,
+                "item_name": "3 seater sofa"
+            },
+
+            {
+                "id": 2,
+                "item_name": "1 seater sofa"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Boardroom",
+        "can_repeat": false,
+        "inventory": [
+            {
+                "id": 2,
+                "item_name": "3 seater sofa"
+            }
+        ]
+    }
+]

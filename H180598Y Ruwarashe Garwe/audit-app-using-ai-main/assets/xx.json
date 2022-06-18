@@ -1,0 +1,132 @@
+[
+    {
+        "name": "Lancet",
+        "description": "Checking for Covid",
+        "created_by": 1,
+        "organization": 1,
+        "revision_number": 1,
+        "published": true,
+        "last_modified": "2021-08-31",
+        "sections": [
+            {
+                "id": 1,
+                "section_name": "first floor",
+                "description": "fff",
+                "floor_plan": "",
+                "repeatable": null,
+                "data_fields": [
+                    {
+                        "id": 1,
+                        "prompt": "What is your temp",
+                        "data_type": 5,
+                        "range": [
+                            {
+                                "id": 1,
+                                "name": "Lancet",
+                                "minimum": "22",
+                                "minimum_response": "Brrrr",
+                                "maximum": "100",
+                                "maximum_response": "Stop drop and roll"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": [
+                    {
+                        "id": 1,
+                        "description": "Checking for Covid",
+                        "name": "Lancet",
+                        "count": 0
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name": "De papel",
+        "description": "Checking for Covid",
+        "created_by": 1,
+        "organization": 1,
+        "revision_number": 1,
+        "published": true,
+        "last_modified": "2021-08-31",
+        "sections": [
+            {
+                "id": 1,
+                "section_name": "first floor",
+                "description": "fff",
+                "floor_plan": "",
+                "repeatable": null,
+                "data_fields": [
+                    {
+                        "id": 1,
+                        "prompt": "What is your temp",
+                        "data_type": 5,
+                        "range": [
+                            {
+                                "id": 1,
+                                "name": "Lancet",
+                                "minimum": "22",
+                                "minimum_response": "Brrrr",
+                                "maximum": "100",
+                                "maximum_response": "Stop drop and roll"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": [
+                    {
+                        "id": 1,
+                        "description": "Checking for Covid",
+                        "name": "Lancet",
+                        "count": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Caledini",
+        "description": "Checking for Covid",
+        "created_by": 1,
+        "organization": 1,
+        "revision_number": 1,
+        "published": true,
+        "last_modified": "2021-08-31",
+        "sections": [
+            {
+                "id": 1,
+                "section_name": "first floor",
+                "description": "fff",
+                "floor_plan": "",
+                "repeatable": null,
+                "data_fields": [
+                    {
+                        "id": 1,
+                        "prompt": "What is your temp",
+                        "data_type": 5,
+                        "range": [
+                            {
+                                "id": 1,
+                                "name": "Lancet",
+                                "minimum": "22",
+                                "minimum_response": "Brrrr",
+                                "maximum": "100",
+                                "maximum_response": "Stop drop and roll"
+                            }
+                        ]
+                    }
+                ],
+                "inventory": [
+                    {
+                        "id": 1,
+                        "description": "Checking for Covid",
+                        "name": "Lancet",
+                        "count": 0
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,703 @@
+[
+    {
+        "id": 1,
+        "name": "SASRIA",
+        "description": "SASRIA - Crawford Loss Adjustor Audit v4",
+        "created_by": {
+            "username": "admin"
+        },
+        "organization": {
+            "name": "SASRIA"
+        },
+        "published": true,
+        "date_created": "2021-10-05T10:43:45.387957Z",
+        "last_modified": "2021-10-05T14:19:09.778249Z",
+        "section": [
+            {
+                "id": 1,
+                "section_name": "Site Information",
+                "description": "Site Information",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Business name",
+                        "data_type": 1,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Date of loss",
+                        "data_type": 4,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Please take a photo of the staff roster or schedule if available",
+                        "data_type": 9,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Take a picture of the trading hours if possible",
+                        "data_type": 9,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "section_name": "Description of Site and Loss Event",
+                "description": "Description of Risk",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Please describe the building or site",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Please describe what the building is used for",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Please describe the event that caused the loss",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Please describe the damage you have observed on site",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "section_name": "Security & Protection",
+                "description": "Security & Protection",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Does the site have a burglar alarm?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Does the site have a burglar alarm?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Who is the security company?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take photos of the system if possible",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Does the site have an electrified fence?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Does the site have an electrified fence?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Take contextual photos",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Does the building have a CCTV system in place?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Does the building have a CCTV system in place?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Please take contextual pictures of the system",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "section_name": "Fire Protection",
+                "description": "Fire Protection",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Does the building have fire extinguishers",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Does the building have firehose reels",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Does the building have sprinklers",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Does the building have sprinklers",
+                            "follow_up": [
+                                {
+                                    "prompt": "Take photos of IVC chamber and gauges",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                },
+                                {
+                                    "prompt": "Take a photo of the service date if available",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Does the building have automatic fire detection",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Does the building have automatic fire detection",
+                            "follow_up": [
+                                {
+                                    "prompt": "Please take a photo of the fire control panel",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Take photos of the most recent fire service date",
+                        "data_type": 9,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "section_name": "Building Characteristics",
+                "description": "Building Characteristics",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "What is the overall size of the building? (SQM)",
+                        "data_type": 6,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Is the building multi story?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the building multi story?",
+                            "follow_up": [
+                                {
+                                    "prompt": "How many floors are there",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Are there any basement levels",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Are there any basement levels",
+                            "follow_up": [
+                                {
+                                    "prompt": "How many basement levels are there?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Is the insured a tenant or the building owner?",
+                        "data_type": 1,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the insured a tenant or the building owner?",
+                            "follow_up": [
+                                {
+                                    "prompt": "What is the building category?",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "What type of office is it?",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "What rate is it?",
+                        "data_type": 1,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "What rate is it?",
+                            "follow_up": [
+                                {
+                                    "prompt": "What type of retail is it?",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "What type of industrial is it?",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "What type of parking is it?",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Where is the building situated?",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Is there a Mezzanine Level?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is there a Mezzanine Level?",
+                            "follow_up": [
+                                {
+                                    "prompt": "What is the size of the mezzanine level?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "What is the tenant category?",
+                        "data_type": 3,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "section_name": "Security",
+                "description": "Security",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Is the property fenced, walled or gated?",
+                        "data_type": 1,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the property fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Is the yard fenced, walled or gated?",
+                        "data_type": 1,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Is the yard fenced, walled or gated?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Name the type",
+                                     "trigger_answer": "yes",
+                                    "data_type": 1
+                                },
+                                {
+                                    "prompt": "Take Contextual Photos",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Do you have access to a floor plan, evac plan or store diagram?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Do you have access to a floor plan, evac plan or store diagram?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Please take a photo",
+                                     "trigger_answer": "yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "section_name": "High Value Items",
+                "description": "High Value Items",
+                "floor_plan": null,
+                "repeatable": null,
+                "inventory": null,
+                "fields": [
+                    {
+                        "prompt": "Are any tellers damaged or missing items?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Are any tellers damaged or missing items?",
+                            "follow_up": [
+                                {
+                                    "prompt": "How many tellers are there in total?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                },
+                                {
+                                    "prompt": "How many tellers are damaged or missing?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                },
+                                {
+                                    "prompt": "Please take contextual photos",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Are any kiosks damaged or missing items?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Are any kiosks damaged or missing items?",
+                            "follow_up": [
+                                {
+                                    "prompt": "How many kiosks are there in total?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                },
+                                {
+                                    "prompt": "How many kiosks are damaged or missing?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                },
+                                {
+                                    "prompt": "Please take contextual photos",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "prompt": "Are there any safes on the premises?",
+                        "data_type": 2,
+                        "range": null,
+                        "link": null,
+                        "follow_up_question": {
+                            "name": "Are there any safes on the premises?",
+                            "follow_up": [
+                                {
+                                    "prompt": "Have they been damaged or removed?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 2
+                                },
+                                {
+                                    "prompt": "How many are there?",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 6
+                                },
+                                {
+                                    "prompt": "Please take contextual photos",
+                                    "trigger_answer": "Yes",
+                                    "data_type": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

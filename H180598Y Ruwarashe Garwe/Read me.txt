@@ -1,0 +1,41 @@
+Title: 	
+
+	Mobile Assessment System  
+
+Introduction:
+
+	The Mobile Assessment System comprises of two application, a web application and mobile application,
+	conjointly allowing competetent supervisors to perform remote assessments of the various projets they wil be working on.
+	The web application is used by the competent supervisors to register users, create assessment templates for the users and
+	allocate assessmesnt template to the appropriate user. 
+ 	The mobile application is used by the project owner to perform the assessmemt and send their results back to the competentent 
+	supervisor for evaluation. Its uses mobile detection and identification to enable the mobile application user to sent their esults to 
+	the competent supervisor in image form. 
+
+Softwares Used:
+	
+	Flutter
+	Development of mobile application 
+	
+ 	Django
+	Development of web application.
+
+	Visual Studio Code: 
+	Development of mobile application 
+	Development of Web application 
+ 	Deployment of mobile application onto android emulator 
+
+	PostGre Database: 
+	Storing of all relavant information 
+	
+	Microsoft Edge:
+	Deploying Web application 
+
+	TensorFlow: 
+	Object detection and identififaction 
+
+	
+
+
+	 
+ 
