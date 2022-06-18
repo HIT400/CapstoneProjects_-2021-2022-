@@ -1,0 +1,471 @@
+#include <LiquidCrystal.h>
+#include <SoftwareSerial.h>
+
+#define pir_nw A0
+#define pir_sw A1
+#define pir_ne A5
+#define pir_se 13
+
+#define buzzer A2
+
+#define nw 2
+#define sw 3
+#define ne 10
+#define se 11
+
+//lcd object
+const int rs = 9, en = 8, d4 = 4, d5 = 5, d6 = 6, d7 = 7;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+SoftwareSerial SIM900(A3, A4);
+char phone_no[]= "+263713662818";
+//Variable to save incoming SMS characters
+char incoming_char=0;
+String msg=""; 
+String textForSMS;
+bool armed=0;
+
+void setup() {
+
+Serial.begin(9600);
+SIM900.begin(9600); // original 19200. while enter 9600 for sim900A
+lcd.begin(20, 4);
+Serial.println(" logging time completed!");
+pinMode(pir_nw, INPUT);
+pinMode(pir_sw, INPUT);
+pinMode(pir_ne, INPUT);
+pinMode(pir_se, INPUT);
+
+pinMode(buzzer, OUTPUT);
+pinMode(nw, OUTPUT);
+pinMode(sw, OUTPUT);
+pinMode(ne, OUTPUT);
+pinMode(se, OUTPUT);
+
+digitalWrite(buzzer, LOW);
+digitalWrite(nw, HIGH);// TURN OFF NW BULB
+digitalWrite(sw, HIGH);// TURN OFF SW BULB
+digitalWrite(ne, HIGH);// TURN OFF NE BULB
+digitalWrite(se, HIGH);// TURN OFF SE BULB
+
+lcd.setCursor(0, 0);
+lcd.print("HIT400 PROJECT");
+lcd.setCursor(0,1);
+lcd.print("SOPHIA TEMBURE      ");
+lcd.setCursor(0, 2);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,3);
+lcd.print("SOFTWARE ENGINEERING");
+delay(5000);
+//lcd.clear();
+
+// AT command to set SIM900 to SMS mode
+  SIM900.print("AT+CMGF=1\r"); 
+  delay(500);
+
+  // Set module to send SMS data to serial out upon receipt 
+  SIM900.print("AT+CNMI=2,2,0,0,0\r");
+  delay(500);
+  SIM900.print("AT+CMGDA=\"");
+  SIM900.println("DEL ALL\"");
+  delay(500);
+}
+
+void loop() {
+  receive_data();
+if(armed==1)
+{
+if ( digitalRead(pir_nw) == HIGH) //
+{
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("Alert:Motion Detectd");
+lcd.setCursor(0, 2);
+lcd.print("at North West Side  ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+digitalWrite(buzzer, HIGH);
+digitalWrite(nw, LOW);// turn on nw bulb
+Serial.println("message sent.");
+
+
+
+ while(digitalRead(pir_nw) == HIGH)
+  { 
+   int i=0;
+    if(i<1)
+    {
+     sendSMS();
+     i+=1; 
+    }
+    receive_data();
+  }
+  digitalWrite(buzzer, LOW);
+digitalWrite(nw, HIGH);// turn off ne bulb
+
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("No Motion Detected  ");
+lcd.setCursor(0, 2);
+lcd.print("                    ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+delay(1000);
+}
+else if(digitalRead(pir_sw) == HIGH)
+{
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("Alert:Motion Detectd");
+lcd.setCursor(0, 2);
+lcd.print("at South West Side  ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+digitalWrite(buzzer, HIGH);
+digitalWrite(sw, LOW);// turn on nw bulb
+Serial.println("message sent.");
+
+
+
+ while(digitalRead(pir_sw) == HIGH)
+  { 
+   int i=0;
+    if(i<1)
+    {
+     sendSMS();
+     i+=1; 
+     receive_data();
+    }
+  }
+  digitalWrite(buzzer, LOW);
+digitalWrite(sw, HIGH);// turn off sw bulb
+
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("No Motion Detected  ");
+lcd.setCursor(0, 2);
+lcd.print("                    ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+delay(1000); 
+}
+else if(digitalRead(pir_ne) == HIGH)
+{
+ lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("Alert:Motion Detectd");
+lcd.setCursor(0, 2);
+lcd.print("at North East Side  ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+digitalWrite(buzzer, HIGH);
+digitalWrite(ne, LOW);// turn on nw bulb
+Serial.println("message sent.");
+
+
+
+ while(digitalRead(pir_ne) == HIGH)
+  { 
+   int i=0;
+    if(i<1)
+    {
+     sendSMS();
+     i+=1; 
+     receive_data();
+    }
+  }
+  digitalWrite(buzzer, LOW);
+digitalWrite(ne, HIGH);// turn off ne bulb
+
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("No Motion Detected  ");
+lcd.setCursor(0, 2);
+lcd.print("                    ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+delay(1000);  
+}
+else if(digitalRead(pir_se) == HIGH)
+{
+ lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("Alert:Motion Detectd");
+lcd.setCursor(0, 2);
+lcd.print("at South East Side  ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+digitalWrite(buzzer, HIGH);
+digitalWrite(se, LOW);// turn on nw bulb
+Serial.println("message sent.");
+
+
+
+ while(digitalRead(pir_se) == HIGH)
+  { 
+   int i=0;
+    if(i<1)
+    {
+     sendSMS();
+     i+=1;
+     receive_data(); 
+    }
+  }
+  digitalWrite(buzzer, LOW);
+digitalWrite(se, HIGH);// turn off sw bulb
+
+lcd.setCursor(0, 0);
+lcd.print("HOME SECURITY SYSTEM");
+lcd.setCursor(0,1);
+lcd.print("No Motion Detected  ");
+lcd.setCursor(0, 2);
+lcd.print("                    ");
+lcd.setCursor(0,3);
+lcd.print("                    ");
+delay(1000); 
+}
+}
+else
+{
+ lcd.setCursor(0, 0);
+   lcd.print("SYSTEM NOT ARMED    ");
+   lcd.setCursor(0,1);
+   lcd.print(" WAITING FOR        "); 
+   lcd.setCursor(0,2);
+   lcd.print("ARMING COMMAND      ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(100); 
+}
+
+}
+
+
+void sendSMS()
+{
+  SIM900.println("AT+CMGF=1");    
+  delay(2000);
+  SIM900.print("AT+CMGS=\"");
+  SIM900.print(phone_no); 
+  SIM900.write(0x22);
+  SIM900.write(0x0D);  // hex equivalent of Carraige return    
+  SIM900.write(0x0A);  // hex equivalent of newline
+  delay(2000);
+  SIM900.print("!!! Alert: Intruder detected ");
+  delay(500);
+  SIM900.println (char(26));//the ASCII code of the ctrl+z is 26
+
+}
+
+void receive_data()
+{
+ // store desired incoming data
+ if(SIM900.available() >0)
+ {
+  while(SIM900.available())
+  {
+   char incoming_char = (char)SIM900.read(); 
+   msg += incoming_char;  
+   delay(10);     
+  }
+   Serial.print(msg);
+
+  //command variables
+  int arm = msg.indexOf("Arm");
+  int disarm = msg.indexOf("Disarm");
+  int nw_light_on = msg.indexOf("Nw on");
+  int nw_light_off = msg.indexOf("Nw off");
+  int ne_light_on = msg.indexOf("Ne on");
+  int ne_light_off = msg.indexOf("Ne off");
+  int sw_light_on = msg.indexOf("Sw on");
+  int sw_light_off = msg.indexOf("Sw off");
+  int se_light_on = msg.indexOf("Se on");
+  int se_light_off = msg.indexOf("Se off");
+
+  if(arm>0)
+  {
+   armed=1;
+   lcd.setCursor(0, 0);
+   lcd.print("SYSTEM ARMING        ");
+   lcd.setCursor(0,1);
+   lcd.print("                    "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(2000);
+  }
+  else if(disarm>0)
+  {
+   armed=0;
+   lcd.setCursor(0, 0);
+   lcd.print("SYSTEM DISARMING    ");
+   lcd.setCursor(0,1);
+   lcd.print("                    "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    ");   
+   delay(2000);
+  }
+  else if(nw_light_on>0)
+  {
+   digitalWrite(nw, LOW);// turn on nw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("NORTH WEST LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED ON  "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    ");  
+   while(1)
+   {
+    if(SIM900.available() >0)
+    {
+    while(SIM900.available())
+    {
+     char incoming_char = (char)SIM900.read(); 
+     msg += incoming_char;       
+    }
+    Serial.print(msg);
+    int nw_light_on = msg.indexOf("Nw on");
+  int nw_light_off = msg.indexOf("Nw off");
+  int ne_light_on = msg.indexOf("Ne on");
+  int ne_light_off = msg.indexOf("Ne off");
+  int sw_light_on = msg.indexOf("Sw on");
+  int sw_light_off = msg.indexOf("Sw off");
+  int se_light_on = msg.indexOf("Se on");
+  int se_light_off = msg.indexOf("Se off");
+    }
+    if(nw_light_off>0)break;
+   } 
+   digitalWrite(nw, HIGH);// turn off nw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("NORTH WEST  LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED OFF "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(2000);
+  }
+   else if(ne_light_on>0)
+  {
+   digitalWrite(ne, LOW);// turn on ne bulb
+   lcd.setCursor(0, 0);
+   lcd.print("NORTH EAST  LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED ON  "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    ");  
+   while(1)
+   {
+    if(SIM900.available() >0)
+    {
+    while(SIM900.available())
+    {
+     char incoming_char = (char)SIM900.read(); 
+     msg += incoming_char;       
+    }
+    Serial.print(msg);
+    ne_light_off = msg.indexOf("Ne off");
+    }
+    if(ne_light_off>0)break;
+   }
+   digitalWrite(ne, HIGH);// turn off ne bulb
+   lcd.setCursor(0, 0);
+   lcd.print("NORTH EAST  LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED OFF "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(2000);
+  }
+  else if(sw_light_on>0)
+  {
+   digitalWrite(sw, LOW);// turn on sw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("SOUTH WEST LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED ON  "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    ");  
+   while(1)
+   {
+    if(SIM900.available() >0)
+    {
+    while(SIM900.available())
+    {
+     char incoming_char = (char)SIM900.read(); 
+     msg += incoming_char;       
+    }
+    Serial.print(msg);
+    sw_light_off = msg.indexOf("Sw off");
+    }
+    if(sw_light_off>0)break;
+   } 
+   digitalWrite(sw, HIGH);// turn off nw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("SOUTH WEST  LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED OFF "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(2000);
+  }
+  else if(se_light_on>0)
+  {
+   digitalWrite(se, LOW);// turn on sw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("SOUTH EAST LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED ON  "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    ");  
+   while(1)
+   {
+    if(SIM900.available() >0)
+    {
+    while(SIM900.available())
+    {
+     char incoming_char = (char)SIM900.read(); 
+     msg += incoming_char;       
+    }
+    Serial.print(msg);
+    se_light_off = msg.indexOf("Se off");
+    }
+    if(se_light_off>0)break;
+   } 
+   digitalWrite(se, HIGH);// turn off nw bulb
+   lcd.setCursor(0, 0);
+   lcd.print("SOUTH EAST  LIGHT   ");
+   lcd.setCursor(0,1);
+   lcd.print("MANUALLY TURNED OFF "); 
+   lcd.setCursor(0,2);
+   lcd.print("                    ");
+   lcd.setCursor(0,3);
+   lcd.print("                    "); 
+   delay(2000);
+  }
+  msg = "";
+}
+}
