@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "emergencymedicalassistant-noir",
+  "private_key_id": "23f0b60b26001d029053fd9c9ef1a377001f279e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbQrSozp4MAlSN\ndr8F05b7srcnagCO/Rn78L/iNGOrtwKKaz6+C2j5xOIzvZuhVhw23lPjXp95bJ89\naBpLLhn5RML2qwlM/heMGfCJtkathUNW2HnGJlIjSXaTdS+b4nr/diP1Dr8+nrho\nKUN43bc8ZsUFgQMCXx5EoVQAnCuxj4UdFS+Jvi4DkHTPwPIP7mC0JFVS1CE781Xs\n6hf3MX+vSBlZe61+7UdSnwmh4VW/1TBtRQc+X+Lid/oYldZfXWcc10kmhcB3UOct\nhsbOopdpVplbcpSNNqhc418xwnWdYt5FD92MqtQ6SYdLvcfHnM0vfI8hFMqzxTRs\nd686sub7AgMBAAECggEANMsLXCUZp7K5JnscvDH08nQUBEJumzBj//+ed5/hzldF\n9WQ/Kub9VITGd9p+y27Y3C1gL/2SU3sEcKBv5GVyLojblH2XBYeW4SxG1sTUppcc\nTTEBw0dvgZEu0Tg1Lpflw+zbkC3qCLR2tvBlAXm+nzrAvrzeFZXbWHHU+voff1nq\nqrSh2eNiGcXjKOx6d30XO0HKslFqHvnRNiw1znEoht6d+wEZwlReuES+TvmjES8o\njPFyYqowwxlPiRpx9dPBDLahk9Hae8zdU57AB5W0hsb24SQKDBXxK0fD+L7zjxhb\njqRDFa/WfBjGyQdLDAni7XuAP6oyBD8OaTxJVpijJQKBgQDQzj+hQYSR3j/EkULM\n+jB7N+KtwBjeVZ5hM0YHmsGB6J668hI7ZoJonU+PRhn3KdxyJftPTMCZ9evx/sDa\nzoni61UtLvBvrsqgnL0na+6Haoy+JtPdArtw8IQ6gRc9qVC4wuLyyY192STRdL7v\n7P8aw1SN1+351gAcVPFVgl3v7QKBgQC+WkXKfscmvRSqWmC4WPTOPF3kY2rthJO8\nErrN5BGSyi5TGTsPhmrekCRf9P9+HzVIBB5pVlW9owS6CtFPxKmZSobPZsZHYm8j\nQ4OUaS4G+MfNzE5PyBoeXyH5PjvjAZw3ebYFekbtUwEw/ch83eKSjou71w4tnpeF\nKk4a9qjFhwKBgEwtAk+tHFUu9Kqcp/cpyygYwkzLCQeLysUBNKovjir7l3TyPS6I\nfkj2IwFM/MoL7o2CR8WtZZKFgjd9zhPFR86ONjvOpQ7JgMjJhcRs/s9OUtxIRACc\nL4/LXyIM2FK5g2Z0SuFyIHlqD6GOat4S4xp7akx5GyuLI+0yG/0rG2QdAoGBAKHk\nMNspu8LMqRjBSOVAcuQ8Hzaw/y4GxYb8/vdA81k+rutp1/s6PQYQ3X7m5aykajJX\nnm3ESaPBU7HOpXoMLpn68nDOXfA0XYVGVFASrFytlXEIQ8pCy0PtcP2D2ncU1YGw\n+AfsmQoawDakgLECHUK8DUeyfZJ7AS72bfsssRldAoGASLIN0ZJFC7VWfK6sB8S0\nM1xcF73LdlVB6ght6xKjGLgtq+s5SSuepgGTBx7UFEsFcRqiAvfHeBDqy+Ch4HI3\nAaUk0S67qnw8HfwMsO5UR8ZBxAdUThlx2k/cIQHWJRLE7TKBeEEh/u4IwxJCZ7JI\n5GCjd1tA1deZHumrKUVkXA4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "medical-assistant-galva@emergencymedicalassistant-noir.iam.gserviceaccount.com",
+  "client_id": "109063813821207370842",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/medical-assistant-galva%40emergencymedicalassistant-noir.iam.gserviceaccount.com"
+}
