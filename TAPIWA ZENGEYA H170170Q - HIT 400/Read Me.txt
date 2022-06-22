@@ -1,0 +1,10 @@
+The project is a chatbot which uses Natural Language Processing to accept a user's input process it by matching intent with response and give a relevant response.
+
+I used python to develop this chatbot, using the NLTK library (Natural Language ToolKit) which processes language written in the English language.
+I used Tensorflow, an open-source software library which is used for machine learning and AI for training and inference of the chatbot. 
+Using Tensorflow, i was able to adapt the Keras Model which is Sequential.  This helps in backend neural network computation.
+
+
+
+During running of the chatbot, run the app.py file and make sure that tensorflow, numpy, nltk and pandas and pickle are downloaded on the machine.
+Also check the folder that contains the app.py and change it in the code to run on local host.

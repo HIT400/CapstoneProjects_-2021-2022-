@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>aMIGO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css' )}}">
+
+</head>
+<body>
+
+
+<div class="chat">
+  <div class="chat-title">
+    <h1>aMIGO</h1>
+    <h2>Your virtual friend</h2>
+    <figure class="avatar">
+      <img src="musana.jpeg" /></figure>
+  </div>
+  <div class="messages">
+    <div class="messages-content"></div>
+  </div>
+  <div class="message-box">
+    <textarea type="text" id="input" class="message-input" placeholder="Type message..."></textarea>
+    <button type="submit" class="message-submit">Send</button>
+  </div>
+
+
+</div>
+<div class="bg"></div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+<script>
+
+var $messages = $('.messages-content'),
+    d, h, m,
+    i = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+  $messages.mCustomScrollbar();
+  setTimeout(function() {
+    fakeMessage();
+  }, 100);
+  
+  document.querySelector('.message-submit').addEventListener('click', () => {
+    
+    console.log($('#input'))
+    const message = $('#input')[0].val
+    console.log('MESSAGE: ', message)
+    
+    const form = new FormData()
+    form.append('msg', message)
+
+
+    // $.ajax({
+    //   url: "http://localhost:5000/chatbot",
+    //   method: 'POST',
+    //   contentType: false,
+    //   processData: false,
+    //   data: form,
+    //   success: (result) => {
+    //     console.log(data)
+    //     document.querySelector('.message-input').value = ''
+    //     fakeMessage(result.response['response'])
+    //     // document.querySelector('#message_text').innerHTML = data['message']
+    //   }
+    // })
+  })
+
+
+});
+
+function updateScrollbar() {
+  $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+    scrollInertia: 10,
+    timeout: 0
+  });
+}
+
+function setDate(){
+  d = new Date()
+  if (m != d.getMinutes()) {
+    m = d.getMinutes();
+    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+  }
+}
+
+function insertMessage() {
+  msg = $('.message-input').val();
+  if ($.trim(msg) == '') {
+    return false;
+  }
+  
+  $('.message-input').val(null);
+  updateScrollbar();
+  setTimeout(function() {
+    fakeMessage();
+  }, 1000 + (Math.random() * 20) * 100);
+}
+
+$('.message-submit').click(function() {
+  insertMessage();
+});
+
+$(window).on('keydown', function(e) {
+  if (e.which == 13) {
+    insertMessage();
+    return false;
+  }
+})
+
+var z = document.getElementById("musana.jpeg");
+
+function fakeMessage(response) {
+  if ($('.message-input').val() != '') {
+    return false;
+  }
+  $('<div class="message loading new"><figure class="avatar"><img src="musana.jpeg" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
+
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><z></figure>' + response + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+    
+  }, 1000 + (Math.random() * 20) * 100);
+
+}</script>
+
+</body>
+</html>
