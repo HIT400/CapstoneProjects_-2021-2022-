@@ -1,0 +1,1 @@
+Social Stock Exchange project for Bruce Migeri HIT400 Capstone Design Poject.
